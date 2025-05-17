@@ -40,3 +40,33 @@ keymap("n", "<C-l>", "<C-w>l", { desc = "Déplace le curseur dans la fenêtre dr
 -- Navigation entre les buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+
+-- Ajout de raccourci en édition de texte
+
+-- Copier (en mode normal ou visuel)
+keymap({ "n", "v" }, "<C-c>", '"+y', opts)
+
+-- Coller
+keymap("n", "<C-v>", '"+p', opts)
+keymap("i", "<C-v>", '<C-r>+', opts)
+
+-- Sauvegarder
+keymap("n", "<C-s>", ":w<CR>", opts)
+keymap("i", "<C-s>", "<Esc>:w<CR>a", opts)
+
+-- Rechercher un fichier avec Telescope
+keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
+
+-- Supprimer une ligne
+keymap("n", "<C-y>", "dd", opts)
+
+-- Revenir en arrière (undo)
+keymap("n", "<C-z>", "u", opts)
+keymap("i", "<C-z>", "<C-o>u", opts)
+
+-- F12 : Ouvrir / Fermer Neo-tree
+keymap("n", "<F12>", ":NvimTreeToggle<CR>", opts)
+
+-- F11 : Vsplit + terminal
+keymap("n", "<F10>", ":vsplit | terminal<CR>", opts)
